@@ -151,12 +151,13 @@ CORS_ALLOW_CREDENTIALS = True  # Allow cookies (session-based login)
 CORS_ALLOWED_ORIGINS = [  
     # "http://127.0.0.1:5173",  # Add your React frontend's URL
     'https://easycook-backend-production.up.railway.app',
-    # 'https://your-frontend-url.vercel.app' # add later when frontend is live
+    "https://easycook-frontend.vercel.app", # add later when frontend is live
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     # "http://127.0.0.1:5173",  # Also allow CSRF from frontend
     'https://easycook-backend-production.up.railway.app',
+    "https://easycook-frontend.vercel.app",
     
     ]
 
