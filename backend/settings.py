@@ -191,7 +191,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# CORS setup (temporary, will update frontend URL later)
-CORS_ALLOWED_ORIGINS = [
-    "https://example-frontend.onrender.com",
-]
