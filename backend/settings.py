@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-js$qk!$-3@ts+wy(#o0i4@=*-gl3vow6z#bwi+_h@+i+hm2bty'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ['easycook-backend-production.up.railway.app']
 
 
 # Application definition
@@ -160,6 +162,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://easycook-frontend.vercel.app",
     
     ]
+
+CSRF_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
+SESSION_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
 
 
 SESSION_COOKIE_HTTPONLY = True  # Prevents JavaScript access for security
