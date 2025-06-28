@@ -163,8 +163,8 @@ CSRF_TRUSTED_ORIGINS = [
     
     ]
 
-CSRF_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
-SESSION_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
+# CSRF_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
+# SESSION_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
 
 
 SESSION_COOKIE_HTTPONLY = True  # Prevents JavaScript access for security
