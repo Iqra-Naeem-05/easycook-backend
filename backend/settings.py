@@ -147,46 +147,70 @@ REST_FRAMEWORK = {
     
 }
 
-# Allows authentication/session-based login.
+# # Allows authentication/session-based login.
 
-CORS_ALLOW_CREDENTIALS = True  # Allow cookies (session-based login)
-CORS_ALLOWED_ORIGINS = [  
-    # "http://127.0.0.1:5173",  # Add your React frontend's URL
-    'https://easycook-backend-production.up.railway.app',
-    "https://easycook-frontend.vercel.app", # add later when frontend is live
-]
+# CORS_ALLOW_CREDENTIALS = True  # Allow cookies (session-based login)
+# CORS_ALLOWED_ORIGINS = [  
+#     # "http://127.0.0.1:5173",  # Add your React frontend's URL
+#     'https://easycook-backend-production.up.railway.app',
+#     "https://easycook-frontend.vercel.app", # add later when frontend is live
+# ]
 
-CSRF_TRUSTED_ORIGINS = [
-    # "http://127.0.0.1:5173",  # Also allow CSRF from frontend
-    'https://easycook-backend-production.up.railway.app',
-    "https://easycook-frontend.vercel.app",
+# CSRF_TRUSTED_ORIGINS = [
+#     # "http://127.0.0.1:5173",  # Also allow CSRF from frontend
+#     'https://easycook-backend-production.up.railway.app',
+#     "https://easycook-frontend.vercel.app",
     
-    ]
+#     ]
 
-# CSRF_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
-# SESSION_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
-
-
-SESSION_COOKIE_HTTPONLY = True  # Prevents JavaScript access for security
-# CSRF_COOKIE_HTTPONLY = True  # Ensures CSRF cookie is secure
-CSRF_COOKIE_HTTPONLY = False  # ✅ Allows React to access CSRF token
-CSRF_USE_SESSIONS = False  # ✅ Ensures CSRF token is stored in a cookie
+# # CSRF_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
+# # SESSION_COOKIE_DOMAIN = "easycook-backend-production.up.railway.app"
 
 
-SESSION_COOKIE_SAMESITE = "None"
-CSRF_COOKIE_SAMESITE = "None"
+# SESSION_COOKIE_HTTPONLY = True  # Prevents JavaScript access for security
+# # CSRF_COOKIE_HTTPONLY = True  # Ensures CSRF cookie is secure
+# CSRF_COOKIE_HTTPONLY = False  # ✅ Allows React to access CSRF token
+# CSRF_USE_SESSIONS = False  # ✅ Ensures CSRF token is stored in a cookie
 
-SESSION_COOKIE_SECURE = True  # Set to True in production with HTTPS
-CSRF_COOKIE_SECURE = True  # Since it's local development
 
-SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Default: Store in DB
-SESSION_COOKIE_AGE = 1209600  # (Optional) 2 weeks session duration
+# SESSION_COOKIE_SAMESITE = "None"
+# CSRF_COOKIE_SAMESITE = "None"
 
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Prevent session loss on reload
-SESSION_SAVE_EVERY_REQUEST = True  # (Optional) Refresh session on each request
+# SESSION_COOKIE_SECURE = True  # Set to True in production with HTTPS
+# CSRF_COOKIE_SECURE = True  # Since it's local development
+
+# SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Default: Store in DB
+# SESSION_COOKIE_AGE = 1209600  # (Optional) 2 weeks session duration
+
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Prevent session loss on reload
+# SESSION_SAVE_EVERY_REQUEST = True  # (Optional) Refresh session on each request
+
+
+
+
 
 
 import os
+
+if not DEBUG:  # Only for production
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_TRUSTED_ORIGINS = [
+        "https://easycook-frontend.vercel.app",
+    ]
+    CORS_ALLOWED_ORIGINS = [
+        "https://easycook-frontend.vercel.app",
+    ]
+    CSRF_COOKIE_SAMESITE = "None"
+    SESSION_COOKIE_SAMESITE = "None"
+    CSRF_COOKIE_DOMAIN = ".vercel.app"  # Or your custom domain
+    SESSION_COOKIE_DOMAIN = ".vercel.app"
+
+
+
+
+
+# import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
