@@ -193,6 +193,7 @@ REST_FRAMEWORK = {
 import os
 
 if not DEBUG:  # Only for production
+    CORS_ALLOW_CREDENTIALS = True
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     CSRF_TRUSTED_ORIGINS = [
