@@ -6,7 +6,7 @@ from rest_framework import status
 from django.contrib.auth import get_user_model
 from .serializers import RegisterSerializer, LoginSerializer, ChefProfileSerializer, UserSerializer, DishSerializer, BookingSerializer, ChefRatingSerializer
 from django.contrib.auth import login, logout
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from django.middleware.csrf import get_token
 from .models import ChefProfile, Dish, Booking, ChefRating
 # from .models import *
@@ -99,6 +99,8 @@ def user_info(request):
 
 # @login_required
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
+@csrf_protect  # This ensures CSRF validation happens properly
 def logout_user(request):
     if request.user.is_authenticated:
         logout(request)
