@@ -396,7 +396,12 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "your-secret-key")
 DEBUG = True
 
 # Replit uses dynamic hostnames, so allow all for dev
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "cf7b4e9f-1937-4147-a057-80f8f8327ae7-00-int2ogr1e2nw.kirk.replit.dev",
+    "easycook-frontend-in.vercel.app",
+]
 
 # -------------------------
 # Application Definition
@@ -416,6 +421,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",  # must be at the top
+    'backend.middleware.CustomCORSHeadersMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -474,40 +480,26 @@ MEDIA_ROOT = BASE_DIR / "media"
 # -------------------------
 # CORS & CSRF
 # -------------------------
-CORS_ALLOW_ALL_ORIGINS = False  # we’ll allow specific ones below
-CORS_ALLOW_CREDENTIALS = True
-
-# CORS_ALLOWED_ORIGINS = [
-#     "https://easycook-frontend-in.vercel.app",
-#     "https://*.replit.dev",
-#     "https://*.repl.co",
-#     "http://localhost:3000",
-#     "http://localhost:5173",
-# ]
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://.*vercel\.app$",
-    r"^https://.*replit\.dev$",
-    r"^https://.*repl\.co$",
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "https://easycook-frontend-in.vercel.app",
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
 ]
-
 
 CSRF_TRUSTED_ORIGINS = [
     "https://easycook-frontend-in.vercel.app",
-    "https://*.replit.dev",
-    "https://*.repl.co",
-]
-
-CORS_ALLOW_HEADERS = [
-    "content-type",
-    "authorization",
-    "x-csrftoken",
-    "x-requested-with",
-    "accept",
-    "origin",
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+
+SESSION_COOKIE_SAMESITE = "None"
+CSRF_COOKIE_SAMESITE = "None"
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # -------------------------
 # Authentication
