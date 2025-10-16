@@ -221,7 +221,11 @@ SECRET_KEY = 'django-insecure-js$qk!$-3@ts+wy(#o0i4@=*-gl3vow6z#bwi+_h@+i+hm2bty
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "cf7b4e9f-1937-4147-a057-80f8f8327ae7-00-int2ogr1e2nw.kirk.replit.dev",
+]
 
 
 # Application definition
@@ -346,13 +350,13 @@ CORS_ALLOW_CREDENTIALS = True  # Allow cookies (session-based login)
 CORS_ALLOWED_ORIGINS = [  
     "http://127.0.0.1:5173",  # Add your React frontend's URL
     "http://localhost:5173",
-    "https://easycook-frontend-in.vercel.app/"
+    "https://easycook-frontend-in.vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:5173",  # Also allow CSRF from frontend
     "http://localhost:5173",
-    "https://easycook-frontend-in.vercel.app/"
+    "https://easycook-frontend-in.vercel.app"
     ]
 
 
