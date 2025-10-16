@@ -420,18 +420,18 @@ MIDDLEWARE = [
 ]
 
 # --- CORS SETTINGS ---
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    "https://easycook-frontend-in.vercel.app",
-    "http://127.0.0.1:5173",
-    "http://localhost:5173",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://easycook-frontend-in.vercel.app",
+#     "http://127.0.0.1:5173",
+#     "http://localhost:5173",
+# ]
 CSRF_TRUSTED_ORIGINS = [
     "https://easycook-frontend-in.vercel.app",
     "http://127.0.0.1:5173",
     "http://localhost:5173",
 ]
 
+CORS_ALLOW_CREDENTIALS = True
 # TEMPORARY (test only): Uncomment if still fails
 CORS_ALLOW_ALL_ORIGINS = True
 
