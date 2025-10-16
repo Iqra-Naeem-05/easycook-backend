@@ -477,13 +477,20 @@ MEDIA_ROOT = BASE_DIR / "media"
 CORS_ALLOW_ALL_ORIGINS = False  # we’ll allow specific ones below
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://easycook-frontend-in.vercel.app",
-    "https://*.replit.dev",
-    "https://*.repl.co",
-    "http://localhost:3000",
-    "http://localhost:5173",
+# CORS_ALLOWED_ORIGINS = [
+#     "https://easycook-frontend-in.vercel.app",
+#     "https://*.replit.dev",
+#     "https://*.repl.co",
+#     "http://localhost:3000",
+#     "http://localhost:5173",
+# ]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*vercel\.app$",
+    r"^https://.*replit\.dev$",
+    r"^https://.*repl\.co$",
 ]
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://easycook-frontend-in.vercel.app",
@@ -499,6 +506,8 @@ CORS_ALLOW_HEADERS = [
     "accept",
     "origin",
 ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 # -------------------------
 # Authentication
