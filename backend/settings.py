@@ -346,13 +346,13 @@ CORS_ALLOW_CREDENTIALS = True  # Allow cookies (session-based login)
 CORS_ALLOWED_ORIGINS = [  
     "http://127.0.0.1:5173",  # Add your React frontend's URL
     "http://localhost:5173",
-    "https://easycook-frontend.vercel.app/"
+    "https://easycook-frontend-in.vercel.app/"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:5173",  # Also allow CSRF from frontend
     "http://localhost:5173",
-    "https://easycook-frontend.vercel.app/"
+    "https://easycook-frontend-in.vercel.app/"
     ]
 
 
